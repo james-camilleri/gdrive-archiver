@@ -1,0 +1,15 @@
+{
+  "name": "gdrive_archiver",
+  "version": "1.0.0",
+  "description": "A utility to search for `.archive.7z` files and move them to the Google Drive `Archive` folder.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James Camilleri",
+  "license": "ISC",
+  "dependencies": {
+    "googleapis": "^39.2.0",
+    "nodemailer": "^6.4.6"
+  }
+}
