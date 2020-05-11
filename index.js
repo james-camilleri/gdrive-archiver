@@ -12,7 +12,13 @@ async function archive () {
   await drive.init()
   
   const files = await drive.getFilesForArchiving()
-  const filesWithPaths = await Promise.all(files.map(async file => {
+  
+  // Google's APIs freak out if we try to pass too many requests at once.
+  // Limit the backup script to a maximum of 5 files in one go to avoid
+  // hitting User Rate Limit Exceeded errors. We're in no rush. 
+  const sublist = files.slice(0, 5)
+  
+  const filesWithPaths = await Promise.all(sublist.map(async file => {
     const pathTokens = await drive.getPathToRoot(file)
     const path = pathTokens.join('/')
     const relativePath = pathTokens.slice(2, -1).join('/')
