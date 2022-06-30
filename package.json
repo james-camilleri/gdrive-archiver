@@ -1,6 +1,6 @@
 {
   "name": "gdrive_archiver",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A utility to search for `.archive.7z` files and move them to the Google Drive `Archive` folder.",
   "main": "index.js",
   "scripts": {
